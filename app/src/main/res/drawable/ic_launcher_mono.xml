@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Иконка приложения: кот на базе cat из Tabler Icons (MIT), см. THIRD-PARTY.md.
+     Рисунок укладывается в безопасную зону адаптивной иконки (66 из 108 dp). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:translateX="26.4"
+        android:translateY="26.4"
+        android:scaleX="2.3"
+        android:scaleY="2.3">
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M20,3v10a8,8 0 1,1 -16,0v-10l3.432,3.432a7.963,7.963 0 0,1 4.568,-1.432c1.769,0 3.403,0.574 4.728,1.546l3.272,-3.546"
+            android:strokeColor="#FFFFFFFF"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:strokeWidth="2" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M2,16h5l-4,4"
+            android:strokeColor="#FFFFFFFF"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:strokeWidth="2" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M22,16h-5l4,4"
+            android:strokeColor="#FFFFFFFF"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:strokeWidth="2" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M8.1,11.9C8.7,10.4 9.9,10.4 10.5,11.9M13.5,11.9C14.1,10.4 15.3,10.4 15.9,11.9"
+            android:strokeColor="#FFFFFFFF"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:strokeWidth="2" />
+        <path
+            android:fillColor="#FFFFFFFF"
+            android:pathData="M12,15.6L11.1,14.8L12.9,14.8Z" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M12,15.6L12,16.7M12,16.7C10.7,16.7 10,17.8 10,18.7M12,16.7C13.3,16.7 14,17.8 14,18.7"
+            android:strokeColor="#FFFFFFFF"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:strokeWidth="2" />
+    </group>
+</vector>

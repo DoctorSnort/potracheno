@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Тема нужна только до первого кадра Compose: она задаёт фон окна,
+         чтобы при запуске не мигало белым. Всё остальное рисует Compose. -->
+    <style name="Theme.Potracheno" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/window_background</item>
+    </style>
+</resources>

@@ -1,0 +1,9 @@
+# В репозитории держим LF, чтобы на разных машинах не было ложных изменений.
+* text=auto eol=lf
+
+# Кроме того, что должен оставаться в windows-формате или бинарным.
+*.bat text eol=crlf
+*.jar binary
+*.png binary
+*.jpg binary
+*.webp binary

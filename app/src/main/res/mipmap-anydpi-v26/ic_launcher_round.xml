@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@drawable/ic_launcher_background" />
+    <!-- Круглый кроп кота-скейтера; круг уложен в безопасную зону 66dp, поэтому виден целиком
+         и под круглой маской, и под квадратной со скруглением. Вокруг — фирменный градиент. -->
+    <foreground android:drawable="@mipmap/ic_launcher_foreground" />
+    <!-- Рисунок в один цвет не перекрасишь, поэтому для темизированных значков
+         берём рисованного кота брата — «Заказано». -->
+    <monochrome android:drawable="@drawable/ic_launcher_mono" />
+</adaptive-icon>

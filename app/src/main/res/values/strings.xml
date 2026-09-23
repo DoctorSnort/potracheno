@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Потрачено</string>
+
+    <string name="action_save">Сохранить</string>
+    <string name="action_cancel">Отмена</string>
+    <string name="action_delete">Удалить</string>
+    <string name="action_back">Назад</string>
+    <string name="action_edit">Изменить</string>
+    <string name="action_add">Добавить</string>
+    <string name="action_undo">Вернуть</string>
+    <string name="action_ok">Готово</string>
+    <string name="action_more">Ещё</string>
+
+    <string name="tab_home">Главная</string>
+    <string name="tab_report">Отчёт</string>
+    <string name="tab_debts">Долги</string>
+    <string name="tab_checklist">Чек-лист</string>
+    <string name="tab_converter">Курс</string>
+
+    <string name="category_food">Еда</string>
+    <string name="category_cafe">Кафе</string>
+    <string name="category_transport">Транспорт</string>
+    <string name="category_housing">Жильё</string>
+    <string name="category_fun">Развлечения</string>
+    <string name="category_shopping">Покупки</string>
+    <string name="category_souvenirs">Сувениры</string>
+    <string name="category_connection">Связь</string>
+    <string name="category_health">Здоровье</string>
+    <string name="category_other">Другое</string>
+
+    <!-- Главная -->
+    <string name="home_no_trips_title">Куда едем?</string>
+    <string name="home_no_trips_text">Заведите поездку: даты, валюту и курс, по которому меняли. Дальше — просто записывайте, сколько потратили.</string>
+    <string name="home_create_trip">Создать поездку</string>
+    <string name="home_pick_trip">Выбрать поездку</string>
+    <string name="home_remaining">Осталось</string>
+    <string name="home_in_minus">В минусе</string>
+    <string name="home_spent_of">потрачено %1$s из %2$s</string>
+    <string name="home_days_left">Дней осталось</string>
+    <string name="home_days_until_start">До старта</string>
+    <string name="home_avg_spent">Тратишь в день</string>
+    <string name="home_avg_left">Можно в день</string>
+    <string name="home_budget_per_day">Бюджет на день</string>
+    <string name="home_can_today">Сегодня ещё</string>
+    <string name="home_over_today">Перебор сегодня</string>
+    <string name="home_avg_tomorrow">с завтра</string>
+    <string name="home_start_hint">Начните с пополнения: кнопка «+» — сколько валюты купили</string>
+    <string name="home_trip_finished">Поездка закончилась</string>
+    <string name="home_today">Сегодня</string>
+    <string name="home_today_total">итого %1$s</string>
+    <string name="home_today_empty">Сегодня пока ни копейки. Так держать 😎</string>
+    <string name="home_all_operations">Все операции</string>
+    <string name="home_spend">Потратил</string>
+    <string name="home_top_up">Пополнить</string>
+    <string name="pace_on_track">В бюджете</string>
+    <string name="pace_tight">Впритык</string>
+    <string name="pace_overspending">Транжиришь</string>
+    <string name="pace_broke">Деньги кончились</string>
+    <string name="forecast_whole_trip">Хватит до конца, останется ~%1$s</string>
+    <string name="forecast_runs_out">Кончатся %1$s, не хватит на %2$s</string>
+    <string name="forecast_runs_out_today">При таком темпе кончатся уже сегодня</string>
+    <string name="forecast_not_enough">Прогноз появится завтра — нужен хотя бы один прожитый день</string>
+    <string name="forecast_broke">Пора пополнить кошелёк</string>
+    <string name="currency_rub">₽</string>
+
+    <!-- Поездки -->
+    <string name="trips_title">Поездки</string>
+    <string name="trip_new">Новая поездка</string>
+    <string name="trip_edit">Поездка</string>
+    <string name="trip_name">Название</string>
+    <string name="trip_name_hint">Китай, Стамбул, Бали…</string>
+    <string name="trip_emoji">Значок</string>
+    <string name="trip_cover">Обложка</string>
+    <string name="trip_currency">Валюта</string>
+    <string name="trip_currency_code">Код</string>
+    <string name="trip_currency_symbol">Символ</string>
+    <string name="trip_rate">Курс, по которому купил валюту</string>
+    <string name="trip_rate_label">1 %1$s = ? ₽</string>
+    <string name="trip_rate_hint">Если меняли несколько раз — впишите средний. Курс можно поправить в любой момент.</string>
+    <string name="trip_dates">Даты</string>
+    <string name="trip_dates_value">%1$s — %2$s · %3$s</string>
+    <string name="trip_dates_pick">Выбрать даты</string>
+    <string name="trip_delete_title">Удалить поездку?</string>
+    <string name="trip_delete_text">Вместе с «%1$s» пропадут все её траты, пополнения, долги и пункты чек-листа.</string>
+    <string name="error_name_required">Без названия сохранить не получится</string>
+    <string name="error_rate_invalid">Курс — положительное число, до шести знаков после запятой</string>
+    <string name="error_currency_required">Укажите код и символ валюты</string>
+
+    <!-- Операции -->
+    <string name="operation_new_expense">Потратил</string>
+    <string name="operation_new_top_up">Пополнение</string>
+    <string name="operation_edit_expense">Трата</string>
+    <string name="operation_edit_top_up">Пополнение</string>
+    <string name="operation_type_expense">Трата</string>
+    <string name="operation_type_top_up">Пополнение</string>
+    <string name="operation_amount">Сумма</string>
+    <string name="operation_paid">Заплатил</string>
+    <string name="operation_in_rub">≈ %1$s</string>
+    <string name="operation_category">Категория</string>
+    <string name="operation_comment">Комментарий</string>
+    <string name="operation_comment_hint">Что это было</string>
+    <string name="operation_date">Когда</string>
+    <string name="operation_exclude">Не учитывать в среднедневных</string>
+    <string name="operation_exclude_hint">Для разовых крупных трат: экскурсия, билеты, жильё сразу за всё</string>
+    <string name="operation_split">Платил за кого-то?</string>
+    <string name="operation_split_hint">Своя доля уйдёт в траты, остальное — в долги. Долги на баланс не влияют: считаем, что вернут.</string>
+    <string name="operation_split_add">Добавить человека</string>
+    <string name="operation_split_half">Пополам</string>
+    <string name="operation_split_equal">Поровну</string>
+    <string name="operation_split_pick">Кто</string>
+    <string name="operation_split_amount">Его доля</string>
+    <string name="operation_split_new_person">Новый человек…</string>
+    <string name="operation_my_share">Моя доля: %1$s</string>
+    <string name="operation_delete_title">Удалить запись?</string>
+    <string name="operation_delete_text">Запись пропадёт, а с ней и долги, которые она завела.</string>
+    <string name="operation_excluded_badge">вне среднего</string>
+    <string name="operation_paid_share">%1$s · моя доля %2$s</string>
+    <string name="operation_top_up_title">Пополнение</string>
+    <string name="error_amount_invalid">Сумма — число больше нуля</string>
+    <string name="error_split_too_much">За других заплачено больше, чем весь чек</string>
+    <string name="error_split_invalid">У каждого — человек и сумма больше нуля, без повторов</string>
+    <string name="operations_title">Все операции</string>
+    <string name="operations_empty">Здесь появятся траты и пополнения</string>
+    <string name="operations_day_total">−%1$s</string>
+
+    <!-- Люди и долги -->
+    <string name="debts_title">Долги</string>
+    <string name="debts_owed_to_me">Тебе должны</string>
+    <string name="debts_i_owe">Ты должен</string>
+    <string name="debts_hint">Долги живут отдельно и не трогают баланс поездки.</string>
+    <string name="debts_add_person">Человек</string>
+    <string name="debts_empty_title">Никто никому не должен</string>
+    <string name="debts_empty_text">Добавьте попутчиков — и записывайте, кто за кого платил. Удобнее всего прямо из траты.</string>
+    <string name="debts_no_trip">Сначала заведите поездку — долги считаются в её валюте</string>
+    <string name="debt_owes_me">должен тебе</string>
+    <string name="debt_i_owe">ты должен</string>
+    <string name="debt_settled">в расчёте</string>
+    <string name="debt_add">Записать долг</string>
+    <string name="debt_settle">Погасить полностью</string>
+    <string name="debt_settle_title">Погасить долг?</string>
+    <string name="debt_settle_text_owes_me">%1$s отдаёт тебе %2$s — и вы в расчёте.</string>
+    <string name="debt_settle_text_i_owe">Ты отдаёшь %1$s %2$s — и вы в расчёте.</string>
+    <string name="debt_settle_confirm">Погасить</string>
+    <string name="debt_settled_comment">Погашено 🤝</string>
+    <string name="debt_settled_done">В расчёте! 🎉</string>
+    <string name="debt_direction_owes_me">Мне должны</string>
+    <string name="debt_direction_i_owe">Я должен</string>
+    <string name="debt_history">История</string>
+    <string name="debt_history_empty">В этой поездке записей нет</string>
+    <string name="debt_from_expense">из траты</string>
+    <string name="debt_delete_title">Удалить запись долга?</string>
+    <string name="debt_delete_text">Накопленная сумма пересчитается.</string>
+    <string name="person_new">Новый человек</string>
+    <string name="person_edit">Человек</string>
+    <string name="person_name">Имя</string>
+    <string name="person_photo">Фотография</string>
+    <string name="person_delete_title">Удалить человека?</string>
+    <string name="person_delete_text">«%1$s» пропадёт вместе с долгами во всех поездках. Траты останутся со своей долей — баланс не изменится.</string>
+
+    <!-- Чек-лист -->
+    <string name="checklist_title">Чек-лист</string>
+    <string name="checklist_input">Что не забыть?</string>
+    <string name="checklist_progress">%1$d из %2$d</string>
+    <string name="checklist_scope_all">Всегда</string>
+    <string name="checklist_scope_trip">%1$s Эта поездка</string>
+    <string name="checklist_clear_done">Убрать выполненные</string>
+    <string name="checklist_empty_title">Ничего не забыто</string>
+    <string name="checklist_empty_text">Паспорт, зарядка, адаптер для розетки, магнитик маме. Пункты «всегда» видны в каждой поездке.</string>
+    <string name="checklist_deleted">Пункт удалён</string>
+    <string name="checklist_all_done">Всё сделано! 🎉</string>
+
+    <!-- Конвертер -->
+    <string name="converter_title">Курс</string>
+    <string name="converter_trip_rate">По курсу поездки</string>
+    <string name="converter_trip_rate_value">1 %1$s = %2$s ₽</string>
+    <string name="converter_local">Курс у местных</string>
+    <string name="converter_local_hint">Меняла назвал курс? Впишите — и сразу видно, сколько получите и выгодно ли это.</string>
+    <string name="converter_local_rate">Курс</string>
+    <string name="converter_dir_cur_to_rub">1 %1$s = X ₽</string>
+    <string name="converter_dir_rub_to_cur">1 ₽ = X %1$s</string>
+    <string name="converter_better">Выгоднее курса поездки на %1$s%%</string>
+    <string name="converter_worse">Хуже курса поездки на %1$s%%</string>
+    <string name="converter_same">Ровно как курс поездки</string>
+    <string name="converter_compare_hint">если меняете рубли на валюту</string>
+    <string name="converter_no_trip">Заведите поездку — конвертер возьмёт её валюту и курс</string>
+    <string name="converter_rub_trip">Поездка в рублях — пересчитывать нечего 🙂</string>
+
+    <!-- Отчёт -->
+    <string name="report_title">Отчёт</string>
+    <string name="report_top_ups">Пополнения</string>
+    <string name="report_spent">Потрачено</string>
+    <string name="report_remaining">Остаток</string>
+    <string name="report_avg_day">Средний день</string>
+    <string name="report_curve">Как таяли деньги</string>
+    <string name="report_curve_remaining">Остаток</string>
+    <string name="report_curve_spent">Потрачено</string>
+    <string name="report_curve_ideal">пунктир — ровный расход</string>
+    <string name="report_days">По дням</string>
+    <string name="report_days_hint">бледное — вне среднего, линия — среднее</string>
+    <string name="report_categories">На что</string>
+    <string name="report_top">Самые дорогие</string>
+    <string name="report_upcoming">Поездка ещё не началась — графики появятся с первого дня</string>
+    <string name="report_no_trip">Заведите поездку — отчёт соберётся сам</string>
+    <string name="report_empty">Пока нечего показывать — запишите первую трату</string>
+
+    <!-- Настройки -->
+    <string name="settings">Настройки</string>
+    <string name="settings_theme">Тема</string>
+    <string name="theme_system">Как в системе</string>
+    <string name="theme_light">Светлая</string>
+    <string name="theme_dark">Тёмная</string>
+    <string name="settings_backup">Резервная копия</string>
+    <string name="settings_export">Сохранить в файл</string>
+    <string name="settings_export_hint">Все поездки, траты, долги и фото одним файлом</string>
+    <string name="settings_import">Восстановить из файла</string>
+    <string name="settings_import_hint">Заменит всё, что сейчас в приложении</string>
+    <string name="settings_drive">Google Диск</string>
+    <string name="drive_connect">Подключить Google Диск</string>
+    <string name="drive_connect_hint">Копия будет лежать в вашем Диске файлом potracheno-backup.zip</string>
+    <string name="drive_account">Подключено: %1$s</string>
+    <string name="drive_account_unknown">Диск подключён</string>
+    <string name="drive_disconnect">Отключить</string>
+    <string name="drive_disconnect_hint">Приложение перестанет обращаться к Диску. Полностью отозвать доступ можно в настройках Google-аккаунта</string>
+    <string name="drive_upload">Выгрузить сейчас</string>
+    <string name="drive_upload_hint">Последняя выгрузка: %1$s</string>
+    <string name="drive_upload_hint_never">Копия на Диск ещё не выгружалась</string>
+    <string name="drive_restore">Восстановить с Диска</string>
+    <string name="drive_restore_hint">Заменит всё, что сейчас в приложении, копией с Диска</string>
+    <string name="drive_auto">Выгружать раз в сутки</string>
+    <string name="drive_auto_hint">Тихо, в фоне, когда есть сеть</string>
+    <string name="drive_last_error">Не получилось: %1$s</string>
+    <string name="drive_connected_done">Google Диск подключён</string>
+    <string name="drive_disconnected_done">Google Диск отключён</string>
+    <string name="drive_uploaded_done">Копия выгружена на Google Диск</string>
+    <string name="drive_restored_done">С Диска восстановлено: поездок — %1$d, операций — %2$d</string>
+    <string name="drive_failed">Google Диск: %1$s</string>
+    <string name="drive_restore_confirm_title">Заменить данные копией с Диска?</string>
+    <string name="drive_restore_confirm_text">Поездки, траты, долги и фотографии на телефоне будут удалены и заменены тем, что лежит на Google Диске. Вернуть их будет нельзя.</string>
+    <string name="settings_demo">Похвастаться</string>
+    <string name="demo_create">Демо-поездка</string>
+    <string name="demo_create_hint">Добавит поездку в Китай с неделей трат, долгами и чек-листом — чтобы показать приложение друзьям. Ваши данные не тронет, а демо можно удалить, как любую поездку</string>
+    <string name="demo_created">Демо-поездка готова — загляните на главную 🐉</string>
+    <string name="settings_about">О приложении</string>
+    <string name="settings_about_text">Потрачено, версия %1$s. Все данные хранятся только на этом устройстве. Брат приложения «Заказано».</string>
+    <string name="export_done">Копия сохранена</string>
+    <string name="export_failed">Не получилось сохранить копию: %1$s</string>
+    <string name="import_confirm_title">Заменить все данные?</string>
+    <string name="import_confirm_text">Поездки, траты, долги и фотографии, которые сейчас в приложении, будут удалены и заменены содержимым файла. Вернуть их будет нельзя.</string>
+    <string name="import_done">Данные восстановлены: поездок — %1$d, операций — %2$d</string>
+    <string name="import_failed">Не получилось прочитать файл: %1$s</string>
+
+    <!-- Фото -->
+    <string name="photo_camera">Камера</string>
+    <string name="photo_gallery">Галерея</string>
+    <string name="photo_remove">Убрать фотографию</string>
+    <string name="photo_failed">Не получилось прочитать картинку — попробуйте другую</string>
+    <string name="photo_camera_unavailable">На устройстве нет приложения камеры</string>
+
+</resources>
