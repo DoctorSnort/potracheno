@@ -12,6 +12,7 @@ class PotrachenoApp : Application() {
     override fun onCreate() {
         super.onCreate()
         container = AppContainer(this)
+        container.syncNotifier.createChannel()
 
         // Снимки, сделанные в редакторе человека и брошенные без сохранения, убираются при старте:
         // в момент выхода с экрана делать это уже некому.

@@ -26,6 +26,7 @@ import kz.chaykin.potracheno.data.prefs.ThemeMode
 import kz.chaykin.potracheno.data.sync.DriveAccess
 import kz.chaykin.potracheno.data.sync.DriveAuth
 import kz.chaykin.potracheno.data.sync.DriveSync
+import kz.chaykin.potracheno.data.sync.SyncNotifier
 import kz.chaykin.potracheno.ui.appContainer
 
 /** Одноразовые события: их нельзя держать в состоянии, иначе снекбар повторится при повороте. */
@@ -55,6 +56,7 @@ class SettingsViewModel(
     private val driveSync: DriveSync,
     private val demoTrip: DemoTrip,
     private val tripRepository: TripRepository,
+    private val syncNotifier: SyncNotifier,
 ) : ViewModel() {
 
     val settings: StateFlow<Settings> = settingsStore.settings.stateIn(
@@ -121,6 +123,9 @@ class SettingsViewModel(
         }
     }
 
+    /** Для подписи у тумблера: разрешены ли уведомления об ошибках выгрузки. */
+    fun canNotify(): Boolean = syncNotifier.canNotify()
+
     fun setAutoDaily(enabled: Boolean) = viewModelScope.launch {
         settingsStore.setAutoDaily(enabled)
         driveSync.setDailyUpload(enabled)
@@ -169,6 +174,8 @@ class SettingsViewModel(
             DriveAction.UPLOAD -> runCatching { driveSync.upload(access.token) }
                 .onSuccess {
                     settingsStore.setSyncSucceeded(it)
+                    // Ручная выгрузка прошла — старое уведомление об ошибке больше не правда.
+                    syncNotifier.cancel()
                     eventChannel.send(BackupEvent.DriveUploaded)
                 }
                 .onFailure { fail(it.readableMessage()) }
@@ -201,6 +208,7 @@ class SettingsViewModel(
                     driveSync = appContainer.driveSync,
                     demoTrip = appContainer.demoTrip,
                     tripRepository = appContainer.tripRepository,
+                    syncNotifier = appContainer.syncNotifier,
                 )
             }
         }

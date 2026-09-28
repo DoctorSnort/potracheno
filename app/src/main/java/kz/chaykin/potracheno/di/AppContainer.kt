@@ -20,6 +20,7 @@ import kz.chaykin.potracheno.data.repo.TripRepository
 import kz.chaykin.potracheno.data.sync.DriveApi
 import kz.chaykin.potracheno.data.sync.DriveAuth
 import kz.chaykin.potracheno.data.sync.DriveSync
+import kz.chaykin.potracheno.data.sync.SyncNotifier
 import kz.chaykin.potracheno.util.AppClock
 
 /**
@@ -64,4 +65,6 @@ class AppContainer(context: Context) {
     val driveAuth: DriveAuth by lazy { DriveAuth(appContext) }
 
     val driveSync: DriveSync by lazy { DriveSync(appContext, backupManager, DriveApi()) }
+
+    val syncNotifier: SyncNotifier by lazy { SyncNotifier(appContext) }
 }

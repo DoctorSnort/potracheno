@@ -25,29 +25,35 @@ class DriveSyncWorker(
     override suspend fun doWork(): Result {
         val container = (applicationContext as PotrachenoApp).container
         val settingsStore = container.settingsStore
+        val notifier = container.syncNotifier
+
+        // Ошибка пишется в настройки всегда, а будит человека — только когда пора (см. SyncAlertPolicy).
+        suspend fun fail(reason: String, kind: SyncFailureKind): Result {
+            settingsStore.setSyncFailed(reason)
+            if (SyncAlertPolicy.shouldNotify(kind, runAttemptCount)) notifier.showFailure(reason)
+            return if (kind == SyncFailureKind.NEEDS_USER) Result.failure() else Result.retry()
+        }
 
         return when (val access = container.driveAuth.request()) {
             is DriveAccess.Granted -> runCatching { container.driveSync.upload(access.token) }
                 .fold(
                     onSuccess = { at ->
                         settingsStore.setSyncSucceeded(at)
+                        notifier.cancel()
                         Result.success()
                     },
                     onFailure = { error ->
-                        settingsStore.setSyncFailed(error.readableMessage())
-                        if (error is DriveAuthExpired) Result.failure() else Result.retry()
+                        fail(
+                            error.readableMessage(),
+                            if (error is DriveAuthExpired) SyncFailureKind.NEEDS_USER else SyncFailureKind.TRANSIENT,
+                        )
                     },
                 )
 
-            is DriveAccess.NeedsConsent -> {
-                settingsStore.setSyncFailed("Google просит подтвердить доступ — зайдите в настройки")
-                Result.failure()
-            }
+            is DriveAccess.NeedsConsent ->
+                fail("Google просит подтвердить доступ — зайдите в настройки", SyncFailureKind.NEEDS_USER)
 
-            is DriveAccess.Failed -> {
-                settingsStore.setSyncFailed(access.message)
-                Result.retry()
-            }
+            is DriveAccess.Failed -> fail(access.message, SyncFailureKind.TRANSIENT)
         }
     }
 

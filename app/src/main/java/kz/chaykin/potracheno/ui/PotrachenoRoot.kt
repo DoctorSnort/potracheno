@@ -11,7 +11,7 @@ import kz.chaykin.potracheno.ui.navigation.PotrachenoNavHost
 import kz.chaykin.potracheno.ui.theme.PotrachenoTheme
 
 @Composable
-fun PotrachenoRoot(settingsStore: SettingsStore) {
+fun PotrachenoRoot(settingsStore: SettingsStore, openSettings: Boolean = false) {
     val settings by settingsStore.settings.collectAsStateWithLifecycle(initialValue = Settings())
 
     val darkTheme = when (settings.themeMode) {
@@ -21,6 +21,6 @@ fun PotrachenoRoot(settingsStore: SettingsStore) {
     }
 
     PotrachenoTheme(darkTheme = darkTheme) {
-        PotrachenoNavHost()
+        PotrachenoNavHost(openSettings = openSettings)
     }
 }

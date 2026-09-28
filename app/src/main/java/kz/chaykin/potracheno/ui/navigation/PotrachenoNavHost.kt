@@ -17,6 +17,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -55,9 +56,17 @@ private val Tabs = listOf(
 )
 
 @Composable
-fun PotrachenoNavHost(navController: NavHostController = rememberNavController()) {
+fun PotrachenoNavHost(
+    navController: NavHostController = rememberNavController(),
+    openSettings: Boolean = false,
+) {
     val backStackEntry by navController.currentBackStackEntryAsState()
     val destination = backStackEntry?.destination
+    // Настройки открываются поверх главной, чтобы «Назад» вело домой, а не закрывало приложение.
+    LaunchedEffect(openSettings) {
+        if (openSettings) navController.navigate(SettingsRoute)
+    }
+
     val showBottomBar = Tabs.any { tab -> destination?.hierarchy?.any { it.hasRoute(tab.routeClass) } == true }
 
     Scaffold(

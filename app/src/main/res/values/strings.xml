@@ -229,6 +229,10 @@
     <string name="drive_restore_hint">Заменит всё, что сейчас в приложении, копией с Диска</string>
     <string name="drive_auto">Выгружать раз в сутки</string>
     <string name="drive_auto_hint">Тихо, в фоне, когда есть сеть</string>
+    <string name="drive_auto_notifications_off">Уведомления об ошибках выключены в настройках Android — о сбое узнаете только здесь</string>
+    <string name="notification_channel_backup">Резервная копия</string>
+    <string name="notification_channel_backup_hint">Сообщает, если копия не выгрузилась на Google Диск</string>
+    <string name="notification_backup_failed_title">Копия не уехала на Google Диск</string>
     <string name="drive_last_error">Не получилось: %1$s</string>
     <string name="drive_connected_done">Google Диск подключён</string>
     <string name="drive_disconnected_done">Google Диск отключён</string>

@@ -4,6 +4,9 @@
     <!-- Для выгрузки копии в Google Диск. Ничего, кроме собственного архива, приложение не шлёт. -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Только чтобы сказать, что ночная выгрузка на Диск не удалась. Спрашивается
+         при включении автовыгрузки; отказ ничего не ломает. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <!--
       С Android 11 приложение не видит чужие пакеты, пока не скажет, что именно ищет.

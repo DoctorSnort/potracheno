@@ -1,6 +1,8 @@
 package kz.chaykin.potracheno.ui.settings
 
+import android.Manifest
 import android.net.Uri
+import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -40,6 +42,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kz.chaykin.potracheno.BuildConfig
@@ -76,6 +79,17 @@ fun SettingsScreen(
 
     // Экран согласия Google возвращается сюда: результат отдаём обратно во ViewModel,
     // она сама доделает то, ради чего согласие и спрашивали.
+    // Уведомления нужны только для сообщения «ночная выгрузка не удалась». Состояние
+    // перечитывается при возврате на экран: разрешение могли выдать в настройках Android.
+    var notificationsAllowed by remember { mutableStateOf(viewModel.canNotify()) }
+    LifecycleResumeEffect(Unit) {
+        notificationsAllowed = viewModel.canNotify()
+        onPauseOrDispose { }
+    }
+    val notificationPermission = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission(),
+    ) { notificationsAllowed = viewModel.canNotify() }
+
     val consentLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.StartIntentSenderForResult(),
     ) { result -> viewModel.onDriveConsent(result.data) }
@@ -175,7 +189,14 @@ fun SettingsScreen(
                 onDisconnect = viewModel::disconnectDrive,
                 onUpload = viewModel::uploadToDrive,
                 onRestore = { confirmDriveRestore = true },
-                onAutoDaily = viewModel::setAutoDaily,
+                notificationsOff = !notificationsAllowed,
+                onAutoDaily = { enabled ->
+                    viewModel.setAutoDaily(enabled)
+                    // Спрашиваем ровно тогда, когда становится понятно, зачем.
+                    if (enabled && !notificationsAllowed && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                        notificationPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
+                    }
+                },
             )
 
             HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
@@ -283,6 +304,7 @@ private fun DriveSection(
     onDisconnect: () -> Unit,
     onUpload: () -> Unit,
     onRestore: () -> Unit,
+    notificationsOff: Boolean,
     onAutoDaily: (Boolean) -> Unit,
 ) {
     Row(
@@ -333,7 +355,9 @@ private fun DriveSection(
 
     SwitchRow(
         title = stringResource(R.string.drive_auto),
-        subtitle = stringResource(R.string.drive_auto_hint),
+        subtitle = stringResource(
+            if (sync.autoDaily && notificationsOff) R.string.drive_auto_notifications_off else R.string.drive_auto_hint,
+        ),
         checked = sync.autoDaily,
         onCheckedChange = onAutoDaily,
     )
