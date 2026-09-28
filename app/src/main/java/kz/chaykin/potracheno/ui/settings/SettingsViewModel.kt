@@ -128,6 +128,8 @@ class SettingsViewModel(
 
     fun setAutoDaily(enabled: Boolean) = viewModelScope.launch {
         settingsStore.setAutoDaily(enabled)
+        // Автовыгрузку выключили — просьба «зайдите в настройки» больше ни к чему.
+        if (!enabled) syncNotifier.cancel()
         driveSync.setDailyUpload(enabled)
     }
 
@@ -138,6 +140,7 @@ class SettingsViewModel(
             // Токен выбрасываем из кэша Play-сервисов, иначе «отключение» ничего не меняет.
             (driveAuth.request() as? DriveAccess.Granted)?.let { driveAuth.forget(it.token) }
             settingsStore.clearDrive()
+            syncNotifier.cancel()
             eventChannel.send(BackupEvent.DriveDisconnected)
         } finally {
             _busy.value = false

@@ -15,8 +15,11 @@ class MainActivity : ComponentActivity() {
 
         val container = (application as PotrachenoApp).container
         // Пришли из уведомления об ошибке выгрузки — сразу на настройки, а не на главную.
-        // Только при первом создании: после поворота экрана пользователь уже там, где хочет.
-        val openSettings = savedInstanceState == null && intent.getBooleanExtra(EXTRA_OPEN_SETTINGS, false)
+        // Только при первом создании и не из «Недавних»: интент с меткой остаётся в задаче,
+        // и без этих проверок каждый повторный запуск снова уводил бы в настройки.
+        val fromHistory = intent.flags and Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY != 0
+        val openSettings = savedInstanceState == null && !fromHistory &&
+            intent.getBooleanExtra(EXTRA_OPEN_SETTINGS, false)
         setContent {
             PotrachenoRoot(settingsStore = container.settingsStore, openSettings = openSettings)
         }
